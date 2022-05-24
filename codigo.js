@@ -48,8 +48,7 @@ function mostraResultado(clima) { //Função para mostrar os dados na tela
   temp_number.innerHTML = clima.currentConditions.temp.c;
   temp_unit.innerHTML = 'ºC';
   icones_img.innerHTML = `<img style="height: 35% ; width: 35%" src="${clima.currentConditions.iconURL}">`;
-  ventos.innerHTML = "Wind: " + clima.currentConditions.wind.km;
-  vento_unit.innerHTML = "km/h";
+  ventos.innerHTML = "Wind: " + clima.currentConditions.wind.km + "km/h";
   humidity.innerHTML = "Humidity: " + clima.currentConditions.humidity;
   precip.innerHTML = "Precipitation: " + clima.currentConditions.precip;
 }

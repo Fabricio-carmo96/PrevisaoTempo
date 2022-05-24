@@ -46,11 +46,14 @@
 }
  .vento {
     display: flex;
+    flex-flow: row wrap;
+
+    
  }
 
  #icon {
      max-width: 300px;
-     max-width: 300px;
+     width: 300px;
  } 
 
  .desc {
