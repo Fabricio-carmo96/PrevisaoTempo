@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão do Tempo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<div class="mainCard"> <!-- Div principal -->
+  <div class="card  shadow-lg" style="width: 30rem;"> <!-- Div do card principal  -->
+    <div class="card-header"></div>
+    <div class="card-body "> <!-- Div do corpo card principal  -->
+      
+     <div class="top-card">  
+      <div class="city">Sua Cidade</div>
+      <div class="date">Data de hoje</div>
+      <div class="dayweek">Dia da Semana</div>
+      <div class="desc">Nublado</div>
+     </div>
+
+      <div class="icones"> 
+        <img style="height: 30% ; width: 30%" src="./assets/icons/unknown.png">
+      </div>
+
+      <div class="temp my-4">
+        <div>22</div>
+        <span>ºC</span>
+      </div>
+      
+      <div class="clima_desc"> 
+        <div class="vento">
+          <div>Wind: 15</div> 
+          <span>km/h</span>
+        </div>
+        <div class="humidity">
+          <div>Humidity: 57%</div>
+        </div>
+        <div class="precip">
+          <div>Precipitation: 3%</div>
+        </div>
+      </div>  
+
+   </div>
+
+   <div class="card-footer"> <!-- Div do rodape do card principal  -->
+    <div class="input-group"> <!-- Div input + botão -->
+      <input type="text" class="form-control" id="City" placeholder="Digite sua Cidade">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary text-dark" type="button" id="pesquisa" onclick="Clima()">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+   </div>
+
+  </div>
+</div>
+  <script type="text/javascript" src="codigo.js"> </script>
+  <script src="https://kit.fontawesome.com/f0e17cbf2f.js" crossorigin="anonymous"></script>
+</body>
+</html>
