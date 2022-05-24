@@ -62,6 +62,6 @@ function dateBuilder(d) { //função para obter data, usa algumas funções do p
   let month = months[d.getMonth()];
   let year = d.getFullYear();
 
-  return `${date} de ${month} - ${year}`;
+  return `${month} ${date} - ${year}`;
 }
  
