@@ -1,40 +1,40 @@
-const city = document.querySelector('.city');
-const cidade = document.querySelector('.form-control');
-const date = document.querySelector('.date');
-const temp_number = document.querySelector('.temp div');
-const temp_unit = document.querySelector ('.temp span')
-const clima_desc = document.querySelector('.desc');
-const ventos = document.querySelector('.vento div');
+const city = document.querySelector(".city");
+const cidade = document.querySelector(".form-control");
+const date = document.querySelector(".date");
+const temp_number = document.querySelector(".temp div");
+const temp_unit = document.querySelector (".temp span")
+const clima_desc = document.querySelector(".desc");
+const ventos = document.querySelector(".vento div");
 const vento_unit = document.querySelector (".vento span");
-const humidity = document.querySelector('.humidity div');
-const humidity_unit = document.querySelector (".humidity span");
-const precip = document.querySelector('.precip div');
+const humidity = document.querySelector(".humidity div");
+const humidity_unit = document.querySelector(".humidity span");
+const precip = document.querySelector(".precip div");
 const precip_unit = document.querySelector (".precip span");
-const icones_img = document.querySelector('.icones');
-const diaSemana = document.querySelector('.dayweek');
+const icones_img = document.querySelector(".icones");
+const diaSemana = document.querySelector(".dayweek");
+const loading = document.querySelector (".loading");
 // ----------------- definições de variaveis, ultilizando querySelector = Retorna o primeiro elemento dentro do documento (usando ordenação em profundidade, pré-ordenada e transversal dos nós do documento) que corresponde ao grupo especificado de seletores.
 // element = document.querySelector(selectors);
 
 
-function Clima() { //Função fetch, buscar dados na api
-  fetch("https://weatherdbi.herokuapp.com/data/weather/" + cidade.value)
-  .then(response => {
-    console.log(response);
+async function Clima() { //Função fetch, buscar dados na api
+  try {
+    ShowLoading();
+    const response = await fetch("https://weatherdbi.herokuapp.com/data/weather/" + cidade.value);
+    HideLoading();
     if (response.status == "400") {
         throw new Error(`Erro https: status ${response.status}- Rejected characters in query "${cidade.value}"`);
     }
-    return response.json();
-})
-.catch(error => {
-    alert(error.message)
-})
-.then(response => {
-    mostraResultado(response)  
-});
+    const jsonReponse = await response.json();
+    mostraResultado(jsonReponse);
+  }
+  catch (error) {
+    alert(error.message);
+  }
+  
 }
 
 function mostraResultado(clima) { //Função para mostrar os dados na tela
-  console.log(clima);
   if (clima.status == "fail"){
     alert(clima.message + ": " + clima.query + " -  City does not exist" );
     return ;
@@ -50,7 +50,7 @@ function mostraResultado(clima) { //Função para mostrar os dados na tela
   icones_img.innerHTML = `<img style="height: 35% ; width: 35%" src="${clima.currentConditions.iconURL}">`;
   ventos.innerHTML = "Wind: " + clima.currentConditions.wind.km + "km/h";
   humidity.innerHTML = "Humidity: " + clima.currentConditions.humidity;
-  precip.innerHTML = "Precipitation: " + clima.currentConditions.precip;
+  precip.innerHTML = "Precipitation: " + clima.currentConditions.precip; 
 }
 
 function dateBuilder(d) { //função para obter data, usa algumas funções do proprio JS para obter a data (achei a função pronta na net)
@@ -64,4 +64,11 @@ function dateBuilder(d) { //função para obter data, usa algumas funções do p
 
   return `${month} ${date} - ${year}`;
 }
- 
+
+function ShowLoading () {
+  loading.classList.add("spinner-border");
+}
+
+function HideLoading () {
+  loading.classList.remove("spinner-border");
+}
