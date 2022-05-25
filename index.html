@@ -5,15 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Previsão do Tempo</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css"/>
 </head>
 <div class="mainCard"> <!-- Div principal -->
   <div class="card  shadow-lg" style="width: 30rem;"> <!-- Div do card principal  -->
     <div class="card-header"></div>
     <div class="card-body "> <!-- Div do corpo card principal  -->
-      
-     <div class="top-card">  
+      <div class="loading">
+      </div>
+     <div class="top-card">
       <div class="city">Sua Cidade</div>
       <div class="date">Data de hoje</div>
       <div class="dayweek">Dia da Semana</div>
@@ -45,12 +47,14 @@
 
    <div class="card-footer"> <!-- Div do rodape do card principal  -->
     <div class="input-group"> <!-- Div input + botão -->
-      <input type="text" class="form-control" id="City" placeholder="Digite sua Cidade">
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary text-dark" type="button" id="pesquisa" onclick="Clima()">
-          <i class="fas fa-search"></i>
-        </button>
-      </div>
+      <form onSubmit="Clima();return false;">
+        <input type="text" class="form-control" id="City" placeholder="Digite sua Cidade" name="city">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary text-dark" type="submit" id="pesquisa">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </form>
     </div>
    </div>
 
